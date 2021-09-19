@@ -1,0 +1,3 @@
+[submodule "noisepage"]
+	path = noisepage
+	url = https://github.com.cnpmjs.org/cmu-db/noisepage
