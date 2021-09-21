@@ -1,3 +1,6 @@
 [submodule "noisepage"]
 	path = noisepage
 	url = https://github.com.cnpmjs.org/cmu-db/noisepage
+[submodule "easyloggingpp"]
+	path = easyloggingpp
+	url = https://github.com/amrayn/easyloggingpp
