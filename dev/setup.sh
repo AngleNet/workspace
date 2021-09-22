@@ -4,6 +4,17 @@ function common::say() {
   printf '\n\033[0;44m---> %s \033[0m\n' "$1"
 }
 
+function common::ensure() {
+  if ! "$@"; then common::err "command failed: $*"; fi
+}
+
+function common::err() {
+  common::say "$1" >&2
+  exit 1
+}
+
+
+
 function setup() {
   local force_build="$1"
   local compose_opts="--detach"
@@ -44,10 +55,10 @@ USAGE:
 OPTIONS:
     -b, --build   Force rebuild of the docker image
 COMMANDS:
-    setup         Setup development workspace
+    up            Setup development workspace
     start         Resume a suspended workspace
     stop          Suspend a workspace
-    teardown      Teardown everything
+    down          Teardown everything
 EOF
 }
 
@@ -68,7 +79,7 @@ function main() {
       force_build=true
       shift
       ;;
-    setup)
+    up)
       setup "$force_build"
       exit 0
       ;;
@@ -84,7 +95,7 @@ function main() {
       stop
       exit 0
       ;;
-    teardown)
+    down)
       teardown
       exit 0
       ;;
