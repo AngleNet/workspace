@@ -170,7 +170,7 @@ function main() {
   while [[ $# -gt 0 ]]; do
     key="$1"
     case "$key" in
-    noisepage)
+    noisepage | cpp | python)
       project="$1"
       command="$2"
       break
