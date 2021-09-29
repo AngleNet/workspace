@@ -13,57 +13,23 @@ function noisepage::serve() {
 
 function __noisepage::install() {
   sudo apt-get update -y
-  LINUX_PACKAGES=(
-    "build-essential"
-    "clang-8"
-    "clang-format-8"
-    "clang-tidy-8"
-    "cmake"
-    "doxygen"
-    "libevent-dev"
-    "libjemalloc-dev"
-    "libpq-dev"
-    "libpqxx-dev"
-    "libtbb-dev"
-    "libzmq3-dev"
-    "lld"
-    "llvm-8"
-    "pkg-config"
-    "postgresql-client"
-    "python3-pip"
-    "ninja-build"
-    "wget"
-    "zlib1g-dev"
-    "time"
-    "ant"
-    "ccache"
-    "curl"
-    "lcov"
-    "lsof"
-  )
+  sudo apt-get -y install \
+    build-essential \
+    clang-6.0 \
+    clang-format-6.0 \
+    clang-tidy-6.0 \
+    cmake \
+    doxygen \
+    git \
+    g++-7 \
+    libboost-filesystem-dev \
+    libjemalloc-dev \
+    libjsoncpp-dev \
+    libtbb-dev \
+    libz-dev \
+    llvm-6.0
   # Packages to be installed through pip3.
-  PYTHON_PACKAGES=(
-    "distro"
-    "lightgbm"
-    "numpy"
-    "pandas"
-    "prettytable"
-    "psutil"
-    "psycopg2"
-    "pyarrow"
-    "pyzmq"
-    "requests"
-    "sklearn"
-    "torch"
-    "tqdm"
-    "coverage"
-  )
-  common::say "Installing System packages"
-  # shellcheck disable=SC2046
-  sudo apt-get -y --no-install-recommends install $(
-    IFS=$' '
-    echo "${LINUX_PACKAGES[*]}"
-  )
+  PYTHON_PACKAGES=("distro")
   common::say "Installing Python packages"
   for pkg in "${PYTHON_PACKAGES[@]}"; do
     python3 -m pip show "$pkg" || python3 -m pip install "$pkg"

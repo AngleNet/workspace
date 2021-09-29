@@ -9,10 +9,8 @@ RUN sed -i "s@http://.*security.ubuntu.com@http://repo.huaweicloud.com@g" /etc/a
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get -y update
-RUN apt-get -y install sudo build-essential clang-8 clang-format-8 clang-tidy-8 \
-    cmake llvm-8 lld ninja-build ccache lsof lcov ant openssh-server
-RUN apt-get -y --no-install-recommends install vim
-RUN apt-get -y --no-install-recommends install gdb rsync
+RUN apt-get -y --no-install-recommends install sudo build-essential gdb rsync vim \
+    cmake lld ninja-build ccache lsof lcov ant openssh-server python3
 RUN rm -rf /var/lib/apt/lists/*
 
 # configure sshkey authentication and start ssh-server

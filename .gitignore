@@ -1,4 +1,6 @@
 /.idea
 /dev/books
+/dev/.idea
 
 *.DS_Store
+/exam
