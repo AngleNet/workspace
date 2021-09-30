@@ -10,7 +10,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get -y update
 RUN apt-get -y --no-install-recommends install sudo build-essential gdb rsync vim \
-    cmake lld ninja-build ccache lsof lcov ant openssh-server python3
+    cmake lld ninja-build ccache lsof lcov ant openssh-server python3 python3-pip
 RUN rm -rf /var/lib/apt/lists/*
 
 # configure sshkey authentication and start ssh-server
