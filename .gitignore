@@ -1,6 +1,7 @@
 /.idea
-/dev/books
-/dev/.idea
+/clion/books
+/clion/.idea
+/clion/cluster
 
 *.DS_Store
 /exam
